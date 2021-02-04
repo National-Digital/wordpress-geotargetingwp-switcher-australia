@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Adds GeotargetingWP Widget
+ * Adds GeoTarget Widget
  * @since  1.0.0
  */
 class GeotS_Widget extends WP_Widget {

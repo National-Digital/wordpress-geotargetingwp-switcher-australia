@@ -48,7 +48,7 @@ class GeotSwitcher {
 	 * Enqueue assets
 	 */
 	private function assets() {
-		wp_enqueue_script( 'geotargetingwp-switcher-australia', plugin_dir_url( __FILE__ ) . 'switcher.js', [ 'jquery', 'geot-js' ], '1.0', true );
+		wp_enqueue_script( 'geot-switcher', plugin_dir_url( __FILE__ ) . 'switcher.js', [ 'jquery', 'geot-js' ], '1.0', true );
 	}
 
 	/**
@@ -63,19 +63,21 @@ class GeotSwitcher {
 	 */
 	function set_custom_data() {
 
-		// if no cookie or not a valid state continue with request to API
+		// if no cookie or not a valid city continue with request to API
 		if ( empty( $_COOKIE['geot_switcher'] ) || ! in_array( $_COOKIE['geot_switcher'], array_keys( GeotSwitcher::states() ) ) ) {
 			return false;
 		}
 
 		$state = $_COOKIE['geot_switcher'];
 
-		// on this example we hardcoded the country but you can make it conditional based on your state
+		// on this example we hardcoded the country and states but you can make it conditional based on your city
 		$data = [
 			'country'     => 'Australia',
 			'country_iso' => 'AU',
 			'state'       => $state,
-			'state_iso'   =>  GeotSwitcher::states()[ $state ]
+			'state_iso'   => GeotSwitcher::states()[ $state ],
+			'city'        => '',
+			'zip'         => '',
 		];
 		// return formatted object to the plugin
 		return $this->formatter($data);
@@ -130,6 +132,6 @@ class GeotSwitcher {
 		];
 	}
 }
-add_action( 'wp_enqueue_scripts', function () {
+add_action( 'plugins_loaded', function () {
 	new GeotSwitcher();
 });
