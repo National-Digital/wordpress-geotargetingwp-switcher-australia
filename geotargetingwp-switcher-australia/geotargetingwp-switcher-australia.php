@@ -64,7 +64,7 @@ class GeotSwitcher {
 	function set_custom_data() {
 
 		// if no cookie or not a valid state continue with request to API
-		if ( empty( $_COOKIE['geot_switcher'] ) || ! in_array( $_COOKIE['geot_switcher'], array_keys( GeotSwitcher::cities() ) ) ) {
+		if ( empty( $_COOKIE['geot_switcher'] ) || ! in_array( $_COOKIE['geot_switcher'], array_keys( GeotSwitcher::states() ) ) ) {
 			return false;
 		}
 
@@ -75,7 +75,7 @@ class GeotSwitcher {
 			'country'     => 'Australia',
 			'country_iso' => 'AU',
 			'state'       => $state,
-			'state_iso'   =>  GeotSwitcher::cities()[ $states ]
+			'state_iso'   =>  GeotSwitcher::states()[ $state ]
 		];
 		// return formatted object to the plugin
 		return $this->formatter($data);

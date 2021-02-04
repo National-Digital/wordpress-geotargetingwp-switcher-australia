@@ -29,7 +29,7 @@ class GeotS_Widget extends WP_Widget {
 	public function widget( $args, $instance ) {
 
 		echo $args['before_widget'];
-		$states = array_keys( GeotSwitcher::cities() );
+		$states = array_keys( GeotSwitcher::states() );
 		// check if we have any previously selected item
 		$current = isset( $_COOKIE['geot_switcher'] ) ? $_COOKIE['geot_switcher'] : '';
 		?>
