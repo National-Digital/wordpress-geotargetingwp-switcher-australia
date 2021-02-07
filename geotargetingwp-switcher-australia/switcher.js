@@ -5,10 +5,8 @@ jQuery(function ($) {
         }
         const switcher_options = {
             onChange: function (state_name) {
-
                 if (!state_name.length)
                     return;
-
                 GeotCreateCookie('geot_switcher', state_name, 999);
                 window.location.reload();
 
@@ -21,8 +19,18 @@ jQuery(function ($) {
                 const selectize = $geot_switcher[0].selectize;
                 selectize.addItem(GeotReadCookie('geot_switcher'), true);
             }
-        }
+        } 
+
+        jQuery( document ).on( 'elementor/popup/show', ( event, id, instance ) => {
+          // do your tracking here
+          const $geot_switcher = $('.geot_switcher').selectize(switcher_options);
+            if (GeotReadCookie('geot_switcher')) {
+                const selectize = $geot_switcher[0].selectize;
+                selectize.addItem(GeotReadCookie('geot_switcher'), true);
+            }
+        } );
     });
+
     function GeotCreateCookie(name, value, days) {
         if (days) {
             var date = new Date();
