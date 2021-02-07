@@ -13,6 +13,22 @@ jQuery(function ($) {
             }
         };
 
+
+        setTimeout(function(){ 
+            if(jQuery('.selectize-input.has-options')) {
+                jQuery('.selectize-input').trigger('click');
+                jQuery('.geot_switcher').css("display", "none")
+                $('#aust_state_switcher a').each(function(index, item) {
+                    $(item).on('click', (e) => {
+                        console.log(e.target.dataset.state)
+                        console.log(jQuery(`.selectize-dropdown-content .option[data-value="${e.target.dataset.state}"]`));
+                        jQuery(`.selectize-dropdown-content .option[data-value="${e.target.dataset.state}"]`).trigger( "click" )
+                    })
+                });
+            }
+        }, 100);
+
+
         if ($('.geot_switcher').length) {
             const $geot_switcher = $('.geot_switcher').selectize(switcher_options);
             if (GeotReadCookie('geot_switcher')) {
@@ -22,7 +38,21 @@ jQuery(function ($) {
         } 
 
         jQuery( document ).on( 'elementor/popup/show', ( event, id, instance ) => {
-          // do your tracking here
+
+
+        setTimeout(function(){ 
+            if(jQuery('.selectize-input.has-options')) {
+                jQuery('.selectize-input').trigger('click');
+                jQuery('.geot_switcher').css("display", "none")
+                $('#aust_state_switcher a').each(function(index, item) {
+                    $(item).on('click', (e) => {
+                        console.log(e.target.dataset.state)
+                        console.log(jQuery(`.selectize-dropdown-content .option[data-value="${e.target.dataset.state}"]`));
+                        jQuery(`.selectize-dropdown-content .option[data-value="${e.target.dataset.state}"]`).trigger( "click" )
+                    })
+                });
+            }
+        }, 100);
           const $geot_switcher = $('.geot_switcher').selectize(switcher_options);
             if (GeotReadCookie('geot_switcher')) {
                 const selectize = $geot_switcher[0].selectize;
