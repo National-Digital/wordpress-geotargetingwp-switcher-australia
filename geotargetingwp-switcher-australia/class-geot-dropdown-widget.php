@@ -35,11 +35,19 @@ class GeotS_Widget extends WP_Widget {
 		?>
 		<div class="geot_dropdown_container">
 			<div class="state_switcher" name="geot_switcher" id="aust_state_switcher">
+				<div class="currnet-location">	
+					<p>
+						Your location is currently: <br />
+						<a data-state="<?= $state; ?>" class="<?=($current == $state ?'current':'')?>"><?= isset( $_COOKIE['geot_switcher'] ) ? $_COOKIE['geot_switcher'] : ''; ?></a>
+					</p>
+				</div>
 				<?php foreach ( $states as $state ): ?>
-					<a data-state="<?= $state; ?>" class="<?=($current == $state ?'current':'')?>"><?= $state; ?></a>
+					<?php if ($current != $state) { ?>
+						<a data-state="<?= $state; ?>" class="<?=($current == $state ?'current':'')?>"><?= $state; ?></a>
+					<?php }; ?>
 				<?php endforeach; ?>
 			</div>
-			<select class="geot_switcher" name="geot_switcher" id="geot_switcher" style="visibility: hidden; height: '0px';">
+			<select class="geot_switcher" name="geot_switcher" id="geot_switcher" style="display: none;">
 				<option>Choose one</option>
 				<?php foreach ( $states as $state ): ?>
 					<option value="<?= $state; ?>" <?php selected( $state, $current ); ?>><?= $state; ?></option>
