@@ -89,14 +89,14 @@ class GeotSwitcher {
 	 */
 	public static function states() {
 		return [
+			'Australian Capital Territory' => 'AU-ACT',
 			'New South Wales' => 'AU-NSW',
+			'Northern Territory' => 'AU-NT',
 			'Queensland' => 'AU-QLD',
 			'South Australia' => 'AU-SA',
 			'Tasmania' => 'AU-TAS ',
 			'Victoria' => 'AU-VIC',
 			'Western Australia' => 'AU-WA',
-			'Australian Capital Territory' => 'AU-ACT',
-			'Northern Territory' => 'AU-NT',
 		];
 	}
 
