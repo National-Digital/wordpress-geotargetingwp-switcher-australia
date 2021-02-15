@@ -28,11 +28,22 @@ jQuery(function (jQuery) {
       activateStates(switcher_options);
     }
 
-    jQuery('.location-switcher').on('click', function(e) { 
-      jQuery('.current-location a').addClass('current');
-      jQuery('.state_switcher').removeClass('switcher_hidden' );
-      activateStates(switcher_options);
+    jQuery('.location-switcher').on('click', function (e) { 
+
+      if (jQuery('.state_switcher').hasClass('switcher_hidden')) {
+        jQuery('.state_switcher').removeClass('switcher_hidden');
+        jQuery('.current-location a').addClass('current');
+        activateStates(switcher_options);
+      } else { 
+        jQuery('.state_switcher').addClass('switcher_hidden');
+      } 
+      
     });
+
+    if (jQuery('.geot_switcher')) { 
+      console.log('activating')
+      activateStates(switcher_options);
+    }
 
     
 
@@ -63,6 +74,7 @@ jQuery(function (jQuery) {
 
     jQuery('#aust_state_switcher a').each(function(index, item) {
       jQuery(item).on('click', (e) => {
+        console.log(e)
         jQuery(`.selectize-dropdown-content .option[data-value="${e.target.dataset.state}"]`).trigger( "click" );
       })
     });
