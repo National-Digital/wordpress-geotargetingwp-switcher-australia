@@ -15,7 +15,7 @@ jQuery(function (jQuery) {
     };
 
     if (!GeotReadCookie('geot_switcher')) {
-      var state = jQuery('.location-active-state .elementor-icon-list-text').html().trim();
+      var state = jQuery('[data-id="6803de6"] .elementor-icon-list-text').html().trim();
       GeotCreateCookie('geot_switcher', state, 999);
 
       var stateLink = jQuery(`#aust_state_switcher a[data-state="${state}"]`);
@@ -23,12 +23,12 @@ jQuery(function (jQuery) {
       stateLink.addClass('current');
       jQuery( ".current-location p" ).append(stateLink);
       
-      jQuery('.state_switcher').removeClass('switcher_hidden' );
+      jQuery('.xy-locationbar').removeClass('locationbar-hidden' );
 
-      activateStates(switcher_options);
     }
 
     jQuery('.location-switcher').on('click', function (e) { 
+      console.log(jQuery('.state_switcher'))
 
       if (jQuery('.state_switcher').hasClass('switcher_hidden')) {
         jQuery('.state_switcher').removeClass('switcher_hidden');

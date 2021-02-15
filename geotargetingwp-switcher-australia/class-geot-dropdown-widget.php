@@ -34,7 +34,7 @@ class GeotS_Widget extends WP_Widget {
 		$current = isset( $_COOKIE['geot_switcher'] ) ? $_COOKIE['geot_switcher'] : '';
 		?>
 		<div class="geot_dropdown_container">
-			<div class="state_switcher" name="geot_switcher" id="aust_state_switcher">
+			<div class="state_switcher switcher_hidden" name="geot_switcher" id="aust_state_switcher">
 				<div class="current-location">	
 					<p>
 						Your location is currently: <br />
