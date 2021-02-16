@@ -47,7 +47,7 @@ class GeotS_Widget extends WP_Widget {
 					<?php }; ?>
 				<?php endforeach; ?>
 			</div>
-			<select class="geot_switcher" name="geot_switcher" id="geot_switcher" style="display: none;">
+			<select class="geot_switcher" name="geot_switcher" id="geot_switcher">
 				<option>Choose one</option>
 				<?php foreach ( $states as $state ): ?>
 					<option value="<?= $state; ?>" <?php selected( $state, $current ); ?>><?= $state; ?></option>

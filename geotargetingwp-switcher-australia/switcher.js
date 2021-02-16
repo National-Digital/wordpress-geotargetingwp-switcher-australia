@@ -38,15 +38,6 @@ jQuery(function (jQuery) {
       } 
       
     });
-
-    if (jQuery('.geot_switcher')) { 
-      console.log('activating')
-      activateStates(switcher_options);
-    }
-
-    
-
-    
   });
 
   function activateStates(switcher_options, state) {
@@ -61,14 +52,9 @@ jQuery(function (jQuery) {
 
     jQuery('.selectize-input').trigger('click');
 
-    jQuery('.selectize-input.has-options').css({
+    jQuery('.selectize-input.has-options, .selectize-dropdown-content, .selectize-control').css({
       "opacity": '0',
       "height": '0px'      
-    });
-
-    jQuery('.selectize-dropdown-content').css({
-      "opacity": '0',
-      "height": '0px'    
     });
 
     jQuery('#aust_state_switcher a').each(function(index, item) {
