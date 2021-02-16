@@ -28,7 +28,6 @@ jQuery(function (jQuery) {
     }
 
     jQuery('.location-switcher').on('click', function (e) { 
-      console.log(jQuery('.state_switcher'))
 
       if (jQuery('.state_switcher').hasClass('switcher_hidden')) {
         jQuery('.state_switcher').removeClass('switcher_hidden');
