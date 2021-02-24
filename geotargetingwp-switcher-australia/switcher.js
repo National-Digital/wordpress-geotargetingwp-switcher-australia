@@ -19,7 +19,9 @@ jQuery(function (jQuery) {
       GeotCreateCookie('geot_switcher', state, 999);
 
       var stateLink = jQuery(`#aust_state_switcher a[data-state="${state}"]`);
+
       jQuery('a.current').remove();
+
       stateLink.addClass('current');
       jQuery( ".current-location p" ).append(stateLink);
       

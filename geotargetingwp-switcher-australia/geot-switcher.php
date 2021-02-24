@@ -91,12 +91,9 @@ class GeotSwitcher {
 		return [
 			'Australian Capital Territory' => 'AU-ACT',
 			'New South Wales' => 'AU-NSW',
-			'Northern Territory' => 'AU-NT',
 			'Queensland' => 'AU-QLD',
-			'South Australia' => 'AU-SA',
-			'Tasmania' => 'AU-TAS ',
 			'Victoria' => 'AU-VIC',
-			'Western Australia' => 'AU-WA',
+			'Other' => '',
 		];
 	}
 
